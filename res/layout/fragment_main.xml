@@ -9,27 +9,6 @@
     tools:context="com.brunocapezzali.gallerypreview.MainActivity$PlaceholderFragment" >
 
     <View
-        android:id="@+id/horizontalLine2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignLeft="@+id/layoutGallery"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="90dp"
-        android:background="#D3D3D3" />
-
-    <LinearLayout
-        android:id="@+id/layoutGallery"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_above="@+id/horizontalLine2"
-        android:layout_alignParentLeft="true"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:paddingTop="6dip" >
-
-    </LinearLayout>
-
-    <View
         android:id="@+id/horizontalLine1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -37,17 +16,58 @@
         android:layout_alignLeft="@+id/layoutGallery"
         android:background="#D3D3D3" />
 
+    <View
+        android:id="@+id/horizontalLine2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/layoutGallery"
+        android:layout_alignLeft="@+id/layoutGallery"
+        android:background="#D3D3D3" />
+
     <ImageView
         android:id="@+id/imgPhoto"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/horizontalLine1"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
         android:background="@drawable/gallery_preview_button"
         android:clickable="true"
         android:contentDescription="@string/none"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgPhoto"
+        android:layout_alignRight="@+id/horizontalLine1"
+        android:layout_alignTop="@+id/imgPhoto"
+        android:layout_toRightOf="@+id/imgPhoto"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="@string/stringSingleImage"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:id="@+id/layoutGallery"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/horizontalLine1"
+        android:layout_alignLeft="@+id/horizontalLine1"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/StringMultipleImages"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
