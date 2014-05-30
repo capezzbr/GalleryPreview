@@ -1,6 +1,5 @@
 package com.brunocapezzali.gallerypreview;
 
-
 import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Context;
@@ -49,6 +48,7 @@ public class GalleryPreview extends PopupWindow {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View contentView = layoutInflater.inflate(R.layout.gallery_preview, null); 
 		setContentView(contentView);
+		setAnimationStyle(R.style.AnimationPopup);
 
 		setHeight(LayoutParams.MATCH_PARENT);
 		setWidth(LayoutParams.MATCH_PARENT);
@@ -90,7 +90,6 @@ public class GalleryPreview extends PopupWindow {
 			mBtnPrev.setOnClickListener(mClickListener);
 			mBtnNext.setOnClickListener(mClickListener);
 		}
-
 	} 
 
 	private void updatePicture(int pictureIndex) {

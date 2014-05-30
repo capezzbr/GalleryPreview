@@ -7,6 +7,6 @@
     <string name="none">none</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="stringSingleImage">A single image preview.\n(click on it)</string>
-    <string name="StringMultipleImages">A multiple image gallery with thumbnails (click on it).</string>
+    <string name="StringMultipleImages">A multiple image gallery with thumbnails. (click on it)</string>
 
 </resources>

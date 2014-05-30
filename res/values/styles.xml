@@ -17,4 +17,9 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="AnimationPopup">
+        <item name="@android:windowEnterAnimation">@anim/appear</item>
+        <item name="@android:windowExitAnimation">@anim/disappear</item>
+    </style>
+
 </resources>

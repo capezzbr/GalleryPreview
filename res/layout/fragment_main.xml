@@ -52,7 +52,7 @@
     <LinearLayout
         android:id="@+id/layoutGallery"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:gravity="center"

@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
 			setImageAsPreview(imgPhoto, "img0.JPG");
 			
 			LinearLayout galleryContainer = (LinearLayout)rootView.findViewById(R.id.layoutGallery);
-			createGallery(galleryContainer, new String[]{"img1.JPG", "img2.JPG", "img3.JPG", "img4.JPG"}, 90);
+			createGallery(galleryContainer, new String[]{"img1.JPG", "img2.JPG", "img3.JPG", "img4.JPG"}, 90, 130);
 			
 			return rootView;
 		}
@@ -104,7 +104,8 @@ public class MainActivity extends Activity {
 			}
 		}
 		
-		public void createGallery(LinearLayout container, String images[], int thumbnailSize) {
+		public void createGallery(LinearLayout container, String images[], 
+				int thumbWidth, int thumbHeigth) {
 			if ( images.length == 0 ) {
 				container.getLayoutParams().height = 0;
 				return;
@@ -129,7 +130,7 @@ public class MainActivity extends Activity {
 					image.setScaleType(ScaleType.FIT_CENTER);
 					image.setBackgroundResource(R.drawable.gallery_preview_button);
 					image.setClickable(true);
-					LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(thumbnailSize, thumbnailSize);
+					LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(thumbWidth, thumbHeigth);
 					parms.setMargins(6, 0, 6, 0);
 					image.setLayoutParams(parms);
 					image.setImageBitmap(bitmap);
