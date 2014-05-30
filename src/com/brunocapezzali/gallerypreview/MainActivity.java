@@ -1,14 +1,14 @@
 package com.brunocapezzali.gallerypreview;
 
 import java.io.InputStream;
-
+import java.util.ArrayList;
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,7 +18,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.os.Build;
+import android.widget.ImageView.ScaleType;
 
 public class MainActivity extends Activity {
 
@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
 			setImageAsPreview(imgPhoto, "img0.JPG");
 			
 			LinearLayout galleryContainer = (LinearLayout)rootView.findViewById(R.id.layoutGallery);
-
+			createGallery(galleryContainer, new String[]{"img1.JPG", "img2.JPG", "img3.JPG", "img4.JPG"}, 90);
 			
 			return rootView;
 		}
@@ -101,6 +101,43 @@ public class MainActivity extends Activity {
 						gallery.show();
 					}
 				});
+			}
+		}
+		
+		public void createGallery(LinearLayout container, String images[], int thumbnailSize) {
+			if ( images.length == 0 ) {
+				container.getLayoutParams().height = 0;
+				return;
+			}
+			
+			final ArrayList<Drawable> drawableImages = new ArrayList<Drawable>();
+			OnClickListener onClick = new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					GalleryPreview gallery = new GalleryPreview(getActivity(), drawableImages);
+					gallery.showWithImageIndex((Integer) v.getTag());
+				}
+			};
+			
+			for ( int i=0; i<images.length; i++ ) {
+				Bitmap bitmap = readImageFromAssets(container.getContext(), images[i]);
+				if ( bitmap != null ) {
+					drawableImages.add(new BitmapDrawable(container.getResources(), bitmap));	
+					
+					// create a thumbnail ImageView for every image 
+					ImageView image = new ImageView(container.getContext());
+					image.setScaleType(ScaleType.FIT_CENTER);
+					image.setBackgroundResource(R.drawable.gallery_preview_button);
+					image.setClickable(true);
+					LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(thumbnailSize, thumbnailSize);
+					parms.setMargins(6, 0, 6, 0);
+					image.setLayoutParams(parms);
+					image.setImageBitmap(bitmap);
+
+					container.addView(image);
+					image.setTag(i); // for the click event
+					image.setOnClickListener(onClick);
+				}
 			}
 		}
 	}
