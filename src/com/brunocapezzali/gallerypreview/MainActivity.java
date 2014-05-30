@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.os.Build;
 
 public class MainActivity extends Activity {
@@ -65,16 +66,12 @@ public class MainActivity extends Activity {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
-			
+				
 			ImageView imgPhoto = (ImageView)rootView.findViewById(R.id.imgPhoto);
-			customizeImagePreview(imgPhoto, "img0.JPG");
-			imgPhoto.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View image) {
-					ImageView imgView = (ImageView)image;
-					new GalleryPreview(getActivity(), (BitmapDrawable)imgView.getDrawable()).show();
-				}
-			});
+			setImageAsPreview(imgPhoto, "img0.JPG");
+			
+			LinearLayout galleryContainer = (LinearLayout)rootView.findViewById(R.id.layoutGallery);
+
 			
 			return rootView;
 		}
@@ -88,14 +85,22 @@ public class MainActivity extends Activity {
 			return null;
 		}
 		
-		public void customizeImagePreview(ImageView imageView, String imageFilename) {
+		public void setImageAsPreview(ImageView imageView, String imageFilename) {
 			if ( imageView == null || (imageFilename == null || imageFilename.length() == 0 ) ) {
 				return;
 			}
 			
-			Bitmap bitmap = readImageFromAssets(imageView.getContext(), imageFilename);
+			final Bitmap bitmap = readImageFromAssets(imageView.getContext(), imageFilename);
 			if ( bitmap != null ) {
 				imageView.setImageBitmap(bitmap);
+				imageView.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View image) {
+						GalleryPreview gallery = new GalleryPreview(getActivity(), 
+								new BitmapDrawable(image.getResources(), bitmap));
+						gallery.show();
+					}
+				});
 			}
 		}
 	}
