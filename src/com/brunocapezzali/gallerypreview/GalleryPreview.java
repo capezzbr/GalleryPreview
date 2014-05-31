@@ -22,15 +22,40 @@ public class GalleryPreview extends PopupWindow {
 	private Activity mActivity;
 	
 	/** 
-	 * Are
+	 * Are the images that we want to show into the <code>GalleryPreview</code>
 	 */
 	private ArrayList<Drawable> mImages;
+	
+	/**
+	 * The number of images into the gallery
+	 */
 	private int mImagesCount;
+	
+	/**
+	 * The index of the current image that we are showing into the <code>GalleryPreview</code>
+	 */
 	private int mCurrentImageIndex;
 
+	/**
+	 * Main <code>ImageView</code> that display the current photo inside the <code>GalleryPreview</code>
+	 */
 	private ImageView mImgView;
+	
+	/**
+	 * This <code>TextView</code> shows the number of photos inside the <code>GalleryPreview</code>
+	 */
 	private TextView mTxtInfo;
-	private ImageButton mBtnPrev, mBtnNext, mBtnClose;
+	
+	/**
+	 * <code>ImageButton</code>s that allow the user to navigate the photos inside the 
+	 * <code>GalleryPreview</code> 
+	 */
+	private ImageButton mBtnPrev, mBtnNext;
+
+	/**
+	 * <code>ImageButton</code> that allows the user to close the <code>GalleryPreview</code> 
+	 */
+	private ImageButton mBtnClose;
 
 	/**
 	 * Allow the creation of a <code>GalleryPreview</code> with a single image.
