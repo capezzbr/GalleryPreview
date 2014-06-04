@@ -31,10 +31,11 @@ Some screens
 
 How To Get Started
 ==================
-This Python implementation need to run on [codeskulptor.org](http://www.codeskulptor.org). 
-- Copy the code from **py-RiceRocks.py**
-- Paste the code inside [codeskulptor.org](http://www.codeskulptor.org)
-- Press the play button.
+Copy the following inside your project:
+- GalleryPreview.java
+- res/anim/*.xml
+- res/drawable/*.xml
+- res/layout/gallery_preview.xml
 - Enjoy :)
 
 License 
