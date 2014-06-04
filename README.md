@@ -5,22 +5,23 @@ A Gallery Preview popup for Android that support:
 - Single image preview.
 - Multiple (gallery) image preview.
 
-Creation of a multiple image preview:
+How to use it
 ---------
+
+Creation of a multiple image preview:
 ```java
 ArrayList<Drawable> images = new ArrayList<Drawable>();
-/* Fill images */
+/* Fill the ArrayList with some images */
 new GalleryPreview(getActivity(), images).show();
 ```
 
 Creation of a multiple image preview with a custom start image:
----------
 ```java
 ArrayList<Drawable> images = new ArrayList<Drawable>();
-/* Fill images */
-GalleryPreview gallery = new GalleryPreview(getActivity(), images);
-gallery.showWithImageIndex(3);
+/* Fill the ArrayList with some images */
+new GalleryPreview(getActivity(), images).showWithImageIndex(3);
 ```
+
 Some screens
 ---------
 
