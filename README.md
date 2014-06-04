@@ -25,7 +25,7 @@ new GalleryPreview(getActivity(), images).showWithImageIndex(3);
 Some screens
 ---------
 
-![Screen](screen1.png) ![Screen](screen2.png)
+![Screen](screen1.png)  ![Screen](screen2.png)
 
 How To Get Started
 ==================
